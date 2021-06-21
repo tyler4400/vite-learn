@@ -1,17 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+    <router-view></router-view>
+    <button @click="goto('/home')">home</button>
+    <button @click="goto('/AnotherPage')">AnotherPage</button>
+    <button @click="goto('/LazyLoadPage')">LazyLoadPage</button>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'App',
   components: {
     HelloWorld
-  }
+  },
+    methods: {
+      goto(url: string){
+          this.$router.push(url)
+      }
+    }
+    // setup(){
+    //   const router = useRouter();
+    //   const goto = (url: string) => {
+    //       router.push(url)
+    //   }
+    // }
 })
 </script>
 

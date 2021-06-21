@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "path": {
+      "@/*": ["src/*"]
+    },
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
