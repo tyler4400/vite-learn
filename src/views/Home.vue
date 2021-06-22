@@ -1,5 +1,5 @@
 <template>
-  <p>home</p>
+  <p :class="$style['big-text']">hello, this is a template project.</p>
 </template>
 
 <script>
@@ -9,6 +9,8 @@
   })
 </script>
 
-<style scoped>
-
+<style scoped module>
+.big-text{
+    font-size: 20px;
+}
 </style>

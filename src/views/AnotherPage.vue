@@ -1,5 +1,5 @@
 <template>
-  <p>AnotherPage</p>
+  <p class="AnotherPage">AnotherPage</p>
 </template>
 
 <script lang="ts">
@@ -9,6 +9,9 @@
   })
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.AnotherPage {
+    $danger-color: red;
+    color: $danger-color;
+}
 </style>
