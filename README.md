@@ -46,6 +46,9 @@ Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
 ├── vite.config.ts                 // Vite 配置文件
 └── package.json
 
+### 代码规范
+使airbnb风格的eslint
+
 
 ### 踩坑
 #### webstorm 还不识别vite的@别名，但我们可以创建一个`webpack.config.js`

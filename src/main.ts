@@ -6,5 +6,5 @@ import './style/index.scss'
 const app = createApp(App)
 app.use(router)
 
-console.log('app.config', app.config);
+console.log('app.config', app.config)
 app.mount('#app')

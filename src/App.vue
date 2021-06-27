@@ -15,15 +15,16 @@ import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
-    setup(){ // 测试
-      const router = useRouter();
-      const goto = (url: string) => {
-          router.push(url)
-      }
-      return {
-          goto
-      }
+  setup() { // 测试
+    const router = useRouter()
+    const goto = (url: string) => {
+      router.push(url)
     }
+
+    return {
+      goto,
+    }
+  },
 })
 
 </script>
