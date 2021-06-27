@@ -4,35 +4,11 @@
         <button @click="goto('/home')">home</button>
         <button @click="goto('/AnotherPage')">AnotherPage</button>
         <button @click="goto('/LazyLoadPage')">LazyLoadPage</button>
+        <router-link to="/not-foundddddddd/dddd" custom v-slot="{navigate}">
+          <span @click="navigate">NotFound</span>
+        </router-link>
     </div>
 </template>
-<!--<script lang="ts">-->
-<!--import { defineComponent } from 'vue'-->
-<!--import { useRouter } from 'vue-router'-->
-<!--import HelloWorld from './components/HelloWorld.vue'-->
-
-<!--export default defineComponent({-->
-<!--  name: 'App',-->
-<!--  components: {-->
-<!--    HelloWorld-->
-<!--  },-->
-<!--    methods: {-->
-<!--      goto(url: string){-->
-<!--          this.$router.push(url)-->
-<!--      }-->
-<!--    }-->
-<!--})-->
-
-<!--</script>-->
-
-<!--<script setup lang="ts">-->
-<!--import { useRouter } from 'vue-router'-->
-
-<!--      const router = useRouter();-->
-<!--      const goto = (url: string) => {-->
-<!--          router.push(url)-->
-<!--      }-->
-<!--</script>-->
 
 <script lang="ts">
 import { defineComponent } from 'vue'
