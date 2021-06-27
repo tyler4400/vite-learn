@@ -5,8 +5,10 @@ charset = utf-8
 end_of_line = lf
 indent_size = 2
 indent_style = space
+# 始终在文件末尾插入一个新行
 insert_final_newline = true
 tab_width = 2
+# 去除行首的任意空白字符
 trim_trailing_whitespace = true
 ij_continuation_indent_size = 8
 ij_formatter_off_tag = @formatter:off
