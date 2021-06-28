@@ -15,7 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  # 这里下来可以搞多个job，有先后依赖次序的
   deploy:
     name: deployment with github pages
     runs-on: ubuntu-latest
@@ -44,5 +44,3 @@ jobs:
           user_name: ${{ secrets.MY_USER_NAME }}
           user_email: ${{ secrets.MY_USER_EMAIL }}
           commit_message: deploy to github pages  # 部署时的 git 提交信息，自由填写
-        env:
-          CI: 'gh'

@@ -8,14 +8,14 @@ vite2 + vue3 + vue-router@next + eslint + hosky + lint-staged。
 另外，element plus 和 ant design of vue还在考虑中
 
 ###项目地址
-已部署到github pages, 点击访问：[项目地址](https://tyler4400.github.io/vite-learn/)
+已部署到github pages, 点击访问：[项目地址](https://tyler4400.github.io/vite-learn/), 由于采用的history路由模式，且github pages有基础路径`/vite-learn/`，所以访问可能会有404现象
 
 ### 代码规范
 使airbnb风格的eslint
 
 
 ### 踩坑
-#### webstorm 还不识别vite的@别名，但我们可以创建一个`webpack.config.js`
+#### 1. webstorm 还不识别vite的@别名，但我们可以创建一个`webpack.config.js`
  you can create webpack.config.js file manually
 ```js
 module.exports = {
@@ -28,13 +28,20 @@ module.exports = {
 ```
 然后添加到as a webpack configuration file in Settings | Languages & Frameworks | JavaScript | Webpack.
 
-#### eslint 不支持vite
+#### 2. eslint 不支持vite
 [Vite Vue3项目eslint配置遇到的问题](https://www.cnblogs.com/Jingge/p/14927175.html)
 
 
-### 测试vite是否可以拿到是否可以拿到执行action时注入的环境
+#### 3. 测试vite是否可以拿到是否可以拿到执行action时注入的环境
+先在`deploy_gitHub_pages.yml` 配置了CI环境
+```yaml
+#...最末尾
+env:
+  CI: 'gh'
+```
+但在vite中根本拿不到，在vue-cli中应该可以拿到吧
 ```js
-// 已在`deploy_gitHub_pages.yml` 配置了CI环境， 下面两个输出均为undefined
+// 下面两个输出均为undefined
 console.log('import.meta.env.CI', import.meta.env.CI)
 console.log('process.env.CI', process.env.CI)
 ```
