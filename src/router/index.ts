@@ -23,14 +23,14 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/LazyLoadPage',
     name: 'LazyLoadPage',
-    // eslint-disable-next-line import/no-unresolved
-    component: () => import('@/views/LazyLoadPage.vue'), // 懒加载组件
+    // component: () => import('@/views/LazyLoadPage.vue'), // @别名还不识别
+    component: () => import('../views/LazyLoadPage.vue'),
   },
   // 兜底
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: () => import('../components/NotFound.vue'),
+    component: () => import('../components/NotFound.vue'), // 懒加载组件
   },
 ]
 

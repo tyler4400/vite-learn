@@ -3,7 +3,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "prepare": "husky install",
+    "fix": "eslint --fix ./src --ext .vue,.js,.ts"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts}": "eslint --fix"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -20,8 +25,11 @@
     "@vue/compiler-sfc": "^3.0.5",
     "eslint": "^7.29.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-vue": "^7.12.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "sass": "^1.35.1",
     "typescript": "^4.3.2",
     "vite": "^2.3.7",
