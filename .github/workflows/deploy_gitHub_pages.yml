@@ -1,0 +1,46 @@
+# This is a basic workflow to help you get started with Actions
+
+name: lint
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  deploy:
+    name: deployment with github pages
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js v14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install
+        run: npm install # 安装依赖
+
+      - name: Build
+        run: npm run build # 打包
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
+        with:
+          publish_dir: ./dist # 部署打包后的 dist 目录
+          github_token: ${{ secrets.vite-learn_deploy }} # secret 名
+          user_name: ${{ secrets.MY_USER_NAME }}
+          user_email: ${{ secrets.MY_USER_EMAIL }}
+          commit_message: deploy to github pages  # 部署时的 git 提交信息，自由填写
