@@ -1,24 +1,14 @@
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tyler4400/vite-learn/lint)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tyler4400/vite-learn/lint?label=lint)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tyler4400/vite-learn/deploy_gitHub_pages)
 
-### 规范目录结构
-├── publish/
-└── src/
-    ├── assets/                    // 静态资源目录
-    ├── common/                    // 通用类库目录
-    ├── components/                // 公共组件目录
-    ├── router/                    // 路由配置目录
-    ├── store/                     // 状态管理目录
-    ├── style/                     // 通用 CSS 目录
-    ├── utils/                     // 工具函数目录
-    ├── views/                     // 页面组件目录
-    ├── App.vue
-    ├── main.ts
-    ├── shims-vue.d.ts
-├── tests/                         // 单元测试目录
-├── index.html
-├── tsconfig.json                  // TypeScript 配置文件
-├── vite.config.ts                 // Vite 配置文件
-└── package.json
+### 项目介绍
+#### 用vite搭建一个vue3 + vue全家桶 + ts 的初始项目
+vite2 + vue3 + vue-router@next + eslint + hosky + lint-staged。
+其中vuex不打算集成，打算使用[pinia](https://github.com/posva/pinia)。
+另外，element plus 和 ant design of vue还在考虑中
+
+###项目地址
+已部署到github pages, 点击访问：[项目地址](https://tyler4400.github.io/vite-learn/)
 
 ### 代码规范
 使airbnb风格的eslint
@@ -37,3 +27,6 @@ module.exports = {
 };
 ```
 然后添加到as a webpack configuration file in Settings | Languages & Frameworks | JavaScript | Webpack.
+
+#### eslint 不支持vite
+[Vite Vue3项目eslint配置遇到的问题](https://www.cnblogs.com/Jingge/p/14927175.html)
