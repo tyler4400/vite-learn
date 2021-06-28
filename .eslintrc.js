@@ -1,5 +1,6 @@
 module.exports = {
   env: {
+    node: true,
     browser: true,
     es2021: true,
   },
@@ -27,15 +28,44 @@ module.exports = {
     'operator-linebreak': ['error', 'before'],
     semi: ['error', 'never'],
     indent: ['error', 2, { SwitchCase: 1 }],
-    // ??? 不允许多个空行
     'no-multiple-empty-lines': 1,
+    'no-console': 'off',
+    /**
+     * Vite Vue3项目eslint配置遇到的问题
+     * https://www.cnblogs.com/Jingge/p/14927175.html
+     */
+    'no-param-reassign': ['error', {
+      props: true,
+      ignorePropertyModificationsFor: [
+        'state', // for vuex state
+        'acc', // for reduce accumulators
+        'e', // for e.return value
+      ],
+    }],
+    // Eslint禁止使用++与–，因为一元运算符会自动插入分号，如果一元运算符前有空格，可能会引发歧义
+    'no-plusplus': ['off', { allowForLoopAfterthoughts: true },
+    ],
   },
   overrides: [
     {
-      files: ['*.vue'],
+      files: ['*.vue', '*.ts'],
       rules: {
+        // vue3模板可以有多个根节点了
         'vue/no-multiple-template-root': 'off',
+        /**
+         * Unable to resolve path to module报错
+         * 因为vite需要自己构建配置而vue-cli自动构建"@"，所以eslint不识别webpack的路径别名
+         * 所以以下三个暂时禁止掉，
+         */
+        'import/extensions': 'off',
+        'import/no-unresolved': 'off',
+        'import/no-absolute-path': 'off',
       },
     },
   ],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+  },
 }

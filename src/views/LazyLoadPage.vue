@@ -3,10 +3,11 @@
 </template>
 
 <script>
-  import { defineComponent } from 'vue'
-  export default defineComponent({
-    name: "LazyLoadPage",
-  })
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'LazyLoadPage',
+})
 </script>
 
 <style scoped>
