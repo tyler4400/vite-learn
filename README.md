@@ -30,3 +30,11 @@ module.exports = {
 
 #### eslint 不支持vite
 [Vite Vue3项目eslint配置遇到的问题](https://www.cnblogs.com/Jingge/p/14927175.html)
+
+
+### 测试vite是否可以拿到是否可以拿到执行action时注入的环境
+```js
+// 已在`deploy_gitHub_pages.yml` 配置了CI环境， 下面两个输出均为undefined
+console.log('import.meta.env.CI', import.meta.env.CI)
+console.log('process.env.CI', process.env.CI)
+```
