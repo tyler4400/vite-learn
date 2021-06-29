@@ -14,6 +14,8 @@ vite2 + vue3 + vue-router@next + eslint + hosky + lint-staged。
 使airbnb风格的eslint
 
 
+发
+
 ### 踩坑
 #### 1. webstorm 还不识别vite的@别名，但我们可以创建一个`webpack.config.js`
  you can create webpack.config.js file manually
