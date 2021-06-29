@@ -13,44 +13,6 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  lint_job:
-    name: Check project eslint #eslint检查
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    # 不需要下面矩阵那么多
-    #    runs-on: ${{ matrix.os }}
-    #    strategy:
-    #      matrix:
-    #        node_version: ['10', '12']
-    #        os: [ubuntu-latest, windows-latest, macOS-latest]
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: checkout #代码检出
-      - uses: actions/checkout@v2
-
-      - name: Setup Node.js v14.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-
-      - name: Cache node_modules #缓存依赖
-        id: cache_node_modules
-        uses: actions/cache@v2
-        with:
-          path: prime-numbers
-          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-${{ env.cache-name }}-
-            ${{ runner.OS }}-build-
-            ${{ runner.OS }}-
-
-      - name: Install #安装依赖
-        run: npm install
-
-      - name: Check #检查
-        run: npm run fix
   deploy:
     name: deploy GitHub pages #部署
     runs-on: ubuntu-latest
@@ -79,4 +41,3 @@ jobs:
           user_name: ${{ secrets.MY_USER_NAME }}
           user_email: ${{ secrets.MY_USER_EMAIL }}
           commit_message: deploy to github pages  # 部署时的 git 提交信息，自由填写
-    needs: lint_job
