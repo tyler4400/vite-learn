@@ -1,12 +1,15 @@
 <template>
     <router-view></router-view>
-    <div>
+    <div class="container">
         <button @click="goto('/home')">home</button>
         <button @click="goto('/AnotherPage')">AnotherPage</button>
         <button @click="goto('/LazyLoadPage')">LazyLoadPage</button>
         <router-link to="/not-foundddddddd/dddd" custom v-slot="{navigate}">
           <span @click="navigate">NotFound</span>
         </router-link>
+      <br />
+      <a href="https://tyler4400.github.io/vite-learn/">github pages</a>
+      <a class="mr10" href="https://helloworld-7gdt5hd730eba3c7-1302238818.tcloudbaseapp.com/dist/">Tencent Cloudbase</a>
     </div>
 </template>
 
@@ -29,13 +32,16 @@ export default defineComponent({
 
 </script>
 
-<style>
-#app {
+<style scoped>
+.container {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.mr10 {
+  margin-left: 10px;
 }
 </style>

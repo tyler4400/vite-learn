@@ -80,7 +80,6 @@ jobs:
           user_email: ${{ secrets.MY_USER_EMAIL }}
           commit_message: deploy to github pages  # 部署时的 git 提交信息，自由填写
 
-# 云开发因为cloudbaserc.json的配置问题，一直报错，没时间搞，放弃了
   deploy_tencent_cloudbase:
     name: 部署 Tencent Cloudbase
     runs-on: ubuntu-latest

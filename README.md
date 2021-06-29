@@ -8,7 +8,9 @@ vite2 + vue3 + vue-router@next + eslint + hosky + lint-staged。
 另外，element plus 和 ant design of vue还在考虑中
 
 ###项目地址
-已部署到github pages, 点击访问：[项目地址](https://tyler4400.github.io/vite-learn/), 由于采用的history路由模式，且github pages有基础路径`/vite-learn/`，所以访问可能会有404现象
+已部署到github pages, [点击访问](https://tyler4400.github.io/vite-learn/), 由于采用的history路由模式，且github pages有基础路径`/vite-learn/`，所以访问可能会有404现象
+
+已部署到Tencent Cloudbase, [点击访问](https://helloworld-7gdt5hd730eba3c7-1302238818.tcloudbaseapp.com/dist/), 也有上面404问题，下来看一下怎么加nginx
 
 ### 代码规范
 使airbnb风格的eslint
@@ -45,13 +47,15 @@ console.log('import.meta.env.CI', import.meta.env.CI)
 console.log('process.env.CI', process.env.CI)
 ```
 
-#### 4. 腾讯云开发部署 x失败x
+#### 4. 腾讯云开发部署 成功
 
-云开发部署， 因为`cloudbaserc.json`的配置问题，一直报错，不知道怎么提供`package.json` 没时间搞，放弃了
+云开发部署， 因为`cloudbaserc.json`的配置问题，一直报错，不知道怎么提供`package.json`
 
 [云开发action](https://github.com/marketplace/actions/tencent-cloudbase-github-action)
 
 只能手动部署了一下，[链接](https://helloworld-7gdt5hd730eba3c7-1302238818.tcloudbaseapp.com/dist/)
+
+后来把云函数直接删了就部署成功了,看来云函数还有很多东西要学习
 
 ```
   dist/index.html                         0.48kb
