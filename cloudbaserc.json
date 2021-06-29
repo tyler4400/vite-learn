@@ -1,4 +1,4 @@
 {
-  "envId": "{{env.TENCENT_EVNID}}",
+  "envId": "{{env.ENV_ID}}",
   "version": "2.0"
 }
