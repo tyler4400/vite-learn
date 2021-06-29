@@ -55,7 +55,6 @@ console.log('process.env.CI', process.env.CI)
 
 只能手动部署了一下，[链接](https://helloworld-7gdt5hd730eba3c7-1302238818.tcloudbaseapp.com/dist/)
 
-后来把云函数直接删了就部署成功了,看来云函数还有很多东西要学习
 
 ```
   dist/index.html                         0.48kb
@@ -71,3 +70,4 @@ console.log('process.env.CI', process.env.CI)
    CloudBase Framework  error     函数目录或者文件 vue-echo 不存在
    CloudBase Framework  info     部署日志: '/home/runner/cloudbase-framework/logs/2021-06-29_11-53-46.log'
 ```
+`更新` 后来把云函数直接删了就部署成功了,看来云函数还有很多东西要学习
