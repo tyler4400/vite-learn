@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   lint_job:
-    name: eslint检查
+    name: Check project eslint #eslint检查
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # 不需要下面矩阵那么多
@@ -27,15 +27,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: 代码检出
+      - name: checkout #代码检出
       - uses: actions/checkout@v2
 
-      - name: 设置node环境 Node.js v14.x
+      - name: Setup Node.js v14.x
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
 
-      - name: 缓存依赖
+      - name: Cache node_modules #缓存依赖
         id: cache_node_modules
         uses: actions/cache@v2
         with:
@@ -46,32 +46,32 @@ jobs:
             ${{ runner.OS }}-build-
             ${{ runner.OS }}-
 
-      - name: 安装依赖
+      - name: Install #安装依赖
         run: npm install
 
-      - name: 检查
+      - name: Check #检查
         run: npm run fix
   deploy:
-    name: 部署
+    name: deploy GitHub pages #部署
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: 代码检出
+      - name: checkout #代码检出
       - uses: actions/checkout@v2
 
-      - name: 设置node环境 Node.js v14.x
+      - name: Setup Node.js v14.x
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
 
-      - name: 安装依赖
+      - name: Install #安装依赖
         run: npm install
 
-      - name: 打包
+      - name: build #打包
         run: npm run build
 
-      - name: 部署到 GitHub pages
+      - name: deploy GitHub pages #部署到 GitHub pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           publish_dir: ./dist # 部署打包后的 dist 目录
