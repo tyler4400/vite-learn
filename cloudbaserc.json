@@ -1,0 +1,15 @@
+{
+  "envId": "helloworld-7gdt5hd730eba3c7",
+  "version": "2.0",
+  "framework": {
+    "name": "gh-actions-helloworld",
+    "plugins": {
+      "func": {
+        "use": "@cloudbase/framework-plugin-function",
+        "inputs": {
+          "functions": []
+        }
+      }
+    }
+  }
+}
