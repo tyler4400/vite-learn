@@ -11,37 +11,10 @@
         "inputs": {
           "buildCommand": "npm run build",
           "outputPath": "dist",
-          "cloudPath": "/vue",
+          "cloudPath": "/dist",
           "envVariables": {
             "VUE_APP_ENV_ID": "{{env.ENV_ID}}"
           }
-        }
-      },
-      "server": {
-        "use": "@cloudbase/framework-plugin-function",
-        "inputs": {
-          "functionRootPath": "cloudfunctions",
-          "functions": [
-            {
-              "name": "vue-echo",
-              "timeout": 5,
-              "envVariables": {},
-              "runtime": "Nodejs10.15",
-              "memory": 128,
-              "aclRule": { "invoke": true }
-            }
-          ]
-        }
-      },
-      "auth": {
-        "use": "@cloudbase/framework-plugin-auth",
-        "inputs": {
-          "configs": [
-            {
-              "platform": "NONLOGIN",
-              "status": "ENABLE"
-            }
-          ]
         }
       }
     }
