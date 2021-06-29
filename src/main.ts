@@ -9,4 +9,4 @@ app.use(router)
 console.log('app.config', app.config)
 app.mount('#app')
 
-var a = 3
+var a = 34
