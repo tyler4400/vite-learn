@@ -1,4 +1,4 @@
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tyler4400/vite-learn/lint?label=lint)
+[![lint](https://github.com/tyler4400/vite-learn/actions/workflows/lint.yml/badge.svg)](https://github.com/tyler4400/vite-learn/actions/workflows/lint.yml)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tyler4400/vite-learn/deploy_gitHub_pages)
 
 ### 项目介绍
