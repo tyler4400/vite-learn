@@ -54,8 +54,6 @@ jobs:
   deploy:
     name: 部署
     runs-on: ubuntu-latest
-    needs: lint_job
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -81,3 +79,4 @@ jobs:
           user_name: ${{ secrets.MY_USER_NAME }}
           user_email: ${{ secrets.MY_USER_EMAIL }}
           commit_message: deploy to github pages  # 部署时的 git 提交信息，自由填写
+    needs: lint_job
