@@ -8,5 +8,5 @@ app.use(router)
 
 console.log('app.config', app.config)
 app.mount('#app')
-
+资磁资磁
 var a = 34
