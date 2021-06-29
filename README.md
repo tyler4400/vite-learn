@@ -1,5 +1,5 @@
 [![lint](https://github.com/tyler4400/vite-learn/actions/workflows/lint.yml/badge.svg)](https://github.com/tyler4400/vite-learn/actions/workflows/lint.yml)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tyler4400/vite-learn/deploy_gitHub_pages)
+[![deploy](https://github.com/tyler4400/vite-learn/actions/workflows/deploy.yml/badge.svg)](https://github.com/tyler4400/vite-learn/actions/workflows/deploy.yml)
 
 ### 项目介绍
 #### 用vite搭建一个vue3 + vue全家桶 + ts 的初始项目
