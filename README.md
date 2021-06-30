@@ -23,6 +23,15 @@ location / {
 }
 ```
 
+我的目标是使用github action完成自动化部署，如上自动化部署已经完成了，部署到3个服务器上。但我还希望在里面加入approval flow的机制。最终完成的还不错。
+[语法](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenvironment) 参见这里，文章参考了[这篇](https://devblogs.microsoft.com/devops/i-need-manual-approvers-for-github-actions-and-i-got-them-now/), 不知道现在还在beta阶段不。
+根据语法，不知道能不能单独加一个url。如果加了之后，也能出来进度条和链接，那么会很cool！
+
+![dd](https://storage2.timheuer.com/approvalpost6.png)
+
+
+顺便一说了，给了个`warning` 目前还不清楚是怎么回事。
+> Skip setting environment url as environment 'production' may contain secret.
 
 ### 代码规范
 使airbnb风格的eslint
