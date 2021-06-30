@@ -101,7 +101,11 @@ jobs:
 
     name: 部署 Tencent CloudService
     runs-on: ubuntu-latest
-    needs: lint_job
+    # 这里我们假定gh是dev或staging，而CloudService是prd，所以需要先在dev验证，然后人工approve之后，在发布到prd
+    needs: deploy_github_pages
+    environment:
+      name: production
+      url: http://49.234.117.123:3000/home
 
     steps:
       - uses: actions/checkout@v2
