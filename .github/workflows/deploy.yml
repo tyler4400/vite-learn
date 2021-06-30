@@ -75,7 +75,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           publish_dir: ./dist # 部署打包后的 dist 目录
-          github_token: ${{ secrets.DEPLOY }} # secret 名
+          github_token: ${{ secrets.GH_DEPLOY }} # secret 名
           user_name: ${{ secrets.MY_USER_NAME }}
           user_email: ${{ secrets.MY_USER_EMAIL }}
           commit_message: deploy to github pages  # 部署时的 git 提交信息，自由填写
@@ -96,3 +96,33 @@ jobs:
           secretId: ${{secrets.TENCENT_SECRETID}}
           secretKey: ${{secrets.TENCENT_SECRETKEY}}
           envId: ${{secrets.TENCENT_EVNID}}
+
+  deploy_tencent_cloudservice:
+
+    name: 部署 Tencent CloudService
+    runs-on: ubuntu-latest
+    needs: lint_job
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Run build task
+        run: npm run build
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.TENCENTCLOUD_SHH_TYLER }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "dist/"
+          REMOTE_HOST: ${{ secrets.TENCENTCLOUD_REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.TENCENTCLOUD_REMOTE_USER }}
+          TARGET: ${{ secrets.TENCENTCLOUD_REMOTE_DIR }}
+          EXCLUDE: "/node_modules/"
