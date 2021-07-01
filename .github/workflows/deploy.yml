@@ -17,12 +17,6 @@ jobs:
     name: eslint检查
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    # 不需要下面矩阵那么多
-    #    runs-on: ${{ matrix.os }}
-    #    strategy:
-    #      matrix:
-    #        node_version: ['10', '12']
-    #        os: [ubuntu-latest, windows-latest, macOS-latest]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,17 +27,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-
-      - name: 缓存依赖
-        id: cache_node_modules
-        uses: actions/cache@v2
-        with:
-          path: prime-numbers
-          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-${{ env.cache-name }}-
-            ${{ runner.OS }}-build-
-            ${{ runner.OS }}-
+          cache: 'yarn'
 
       - name: 安装依赖
         run: npm install
@@ -64,6 +48,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
+          cache: 'yarn'
 
       - name: 安装依赖
         run: npm install
@@ -113,6 +98,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
+          cache: 'yarn'
 
       - name: Install npm dependencies
         run: npm install
