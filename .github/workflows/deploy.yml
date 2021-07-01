@@ -26,7 +26,7 @@ jobs:
       - name: 设置node环境 Node.js v14.x
         uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '14'
           cache: 'yarn'
 
       - name: 安装依赖
@@ -47,7 +47,7 @@ jobs:
       - name: 设置node环境 Node.js v14.x
         uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '14'
           cache: 'yarn'
 
       - name: 安装依赖
@@ -97,7 +97,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '14'
           cache: 'yarn'
 
       - name: Install npm dependencies
