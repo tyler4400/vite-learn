@@ -4,7 +4,7 @@
 ### 项目介绍
 #### 用vite搭建一个vue3 + vue全家桶 + ts 的初始项目
 vite2 + vue3 + vue-router@next + eslint + hosky + lint-staged。
-其中vuex不打算集成，打算使用[pinia](https://github.com/posva/pinia)。
+其中vuex不打算集成，打算使用[pinia](https://github.com/posva/pinia) 。
 另外，element plus 和 ant design of vue还在考虑中
 
 ###项目部署
@@ -74,8 +74,6 @@ console.log('process.env.CI', process.env.CI)
 
 [云开发action](https://github.com/marketplace/actions/tencent-cloudbase-github-action)
 
-只能手动部署了一下，[链接](https://helloworld-7gdt5hd730eba3c7-1302238818.tcloudbaseapp.com/dist/)
-
 
 ```
   dist/index.html                         0.48kb
@@ -92,3 +90,35 @@ console.log('process.env.CI', process.env.CI)
    CloudBase Framework  info     部署日志: '/home/runner/cloudbase-framework/logs/2021-06-29_11-53-46.log'
 ```
 `更新` 后来把云函数直接删了就部署成功了,看来云函数还有很多东西要学习
+
+
+### references
+搭建基础项目时参考了下面：
+- [从 0 开始手把手带你搭建一套规范的 Vue3.x 项目工程环境](https://juejin.cn/post/6951649464637636622)
+- [备战2021：vite工程化实践，建议收藏](https://juejin.cn/post/6910014283707318279#heading-22)
+
+eslint踩坑：
+- [Vite Vue3项目eslint配置遇到的问题](https://www.cnblogs.com/Jingge/p/14927175.html)
+
+github action的*环境变量*使用(第二篇废话挺多，建议看第一篇就好了):
+- [I need manual approvers for GitHub Actions!!!! And I got them now :)](https://devblogs.microsoft.com/devops/i-need-manual-approvers-for-github-actions-and-i-got-them-now/)
+- [Adding approval workflow to your GitHub Action](https://timheuer.com/blog/add-approval-workflow-to-github-actions/)
+- [官网文档:Workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenvironment)
+
+vue相关:
+- [一个基于vue3+vite+ts的完整项目](https://juejin.cn/post/6881795051492474893)
+> `Vue Vben Aadmin 2.0`确实可以，能加的功能几乎都加进去了，但也因此显的项目比较臃肿，真正需要用到没有这么多
+- [vue 异步处理_在Vue 3 / Composition API中处理异步](https://blog.csdn.net/weixin_26738395/article/details/108258992)
+> 如标题，主要介绍了vue处理异步的几种方案
+- [单文件组件组合式 API 语法糖 (`<script setup>`)](https://github.com/vuejs/rfcs/blob/a55d6f69760eceb57502fc9d4ff1a088dabb2c15/active-rfcs/0040-script-setup.md)
+> 这个语法很棒，不过还是实验性质的
+- [pinia](https://github.com/posva/pinia)
+> vuex 计划干掉mutation，只有getters,setters,action，pinia已经率先实现了
+- [awesome-vue](https://github.com/vuejs/awesome-vue)
+> 正如标题，这是一个罗列了所有和vue相关的项目、demo，组件，插件等，需要的时候可以在这里搜索
+
+另外，几个很有用的库推荐：
+- [vueuse](https://vueuse.org/guide/config.html)
+> 类似于react的hooks utils，很方便。 使用前可以先看看这篇[Vue3造“hooks”轮子前先看看这个](https://juejin.cn/post/6893289942596714503)
+- [vue-gn-components](https://github.com/huxiaocheng/vue-gn-components)
+> 这是一些业务上的组件库，依赖具体业务，用的可能不会很多，看可以看一下源码和实现
