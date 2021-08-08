@@ -90,7 +90,7 @@ jobs:
     needs: deploy_github_pages
     environment:
       name: production
-      url: http://49.234.117.123:3000/home
+      url: https://vite-learn.tyler4400.com/Home
 
     steps:
       - uses: actions/checkout@v2

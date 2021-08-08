@@ -10,7 +10,7 @@
       <br />
       <a href="https://tyler4400.github.io/vite-learn/">github pages</a>
       <a class="mr10" href="https://helloworld-7gdt5hd730eba3c7-1302238818.tcloudbaseapp.com/dist/">Tencent Cloudbase</a>
-      <a class="mr10" href="http://49.234.117.123:3000/home">Tencent CloudServer</a>
+      <a class="mr10" href="https://vite-learn.tyler4400.com/Home">Tencent CloudServer</a>
     </div>
 </template>
 

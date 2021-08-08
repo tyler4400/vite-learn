@@ -29,9 +29,9 @@ server {
     proxy_max_temp_file_size       128m;
 
     #证书文件名称
-    ssl_certificate "/etc/nginx/1_tyler4400.com_bundle.crt";
+    ssl_certificate "/etc/nginx/conf.d/1_vite-learn.tyler4400.com_bundle.crt";
     #私钥文件名称
-    ssl_certificate_key "/etc/nginx/2_tyler4400.com.key";
+    ssl_certificate_key "/etc/nginx/conf.d/2_vite-learn.tyler4400.com.key";
     ssl_session_cache shared:SSL:1m;
     ssl_session_timeout  10m;
     ssl_ciphers HIGH:!aNULL:!MD5;
