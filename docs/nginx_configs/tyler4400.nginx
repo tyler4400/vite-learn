@@ -1,0 +1,91 @@
+# 用在我的cvm的实例,路径：etc/nginx/nginx.conf
+
+user nginx;
+# nginx进程数，建议设置为等于CPU总核心数
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
+
+# events：配置影响nginx服务器或与用户的网络连接。
+events {
+    worker_connections 1024;
+}
+
+# http：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    '$status $body_bytes_sent "$http_referer" '
+    '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile            on;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    keepalive_timeout   65;
+    types_hash_max_size 4096;
+
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
+
+    # 开启gzip压缩
+    gzip  on;
+
+    # Load modular configuration files from the /etc/nginx/conf.d directory.
+    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    # for more information.
+    include /etc/nginx/conf.d/*.conf;
+
+    server {
+        listen       80;
+        listen       [::]:80;
+        server_name  tyler4400.com;
+        root         /usr/share/nginx/html;
+
+        #把http的域名请求转成https
+        return 301 https://$host$request_uri;
+
+        # Load configuration files for the default server block.
+#        include /etc/nginx/default.d/*.conf;
+#
+#        error_page 404 /404.html;
+#        location = /404.html {
+#        }
+#
+#        error_page 500 502 503 504 /50x.html;
+#        location = /50x.html {
+#        }
+    }
+
+    # Settings for a TLS enabled server.
+    # Nginx 服务器 SSL 证书安装部署
+    server {
+        listen       443 ssl http2;
+        listen       [::]:443 ssl http2;
+        server_name  tyler4400.com;
+        root         /usr/share/nginx/html;
+
+        #证书文件名称
+        ssl_certificate "/etc/nginx/1_tyler4400.com_bundle.crt";
+        #私钥文件名称
+        ssl_certificate_key "/etc/nginx/2_tyler4400.com.key";
+        ssl_session_cache shared:SSL:1m;
+        ssl_session_timeout  10m;
+        ssl_ciphers HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers on;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        error_page 404 /404.html;
+            location = /40x.html {
+            }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+            }
+    }
+}
