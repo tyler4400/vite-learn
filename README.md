@@ -12,7 +12,7 @@ vite2 + vue3 + vue-router@next + eslint + hosky + lint-staged。
 
 2. 已部署到Tencent Cloudbase, [点击访问](https://helloworld-7gdt5hd730eba3c7-1302238818.tcloudbaseapp.com/dist/), 也有上面404问题，下来看一下怎么加nginx
 
-3. 部署到Tencent CloudService，[点击访问](http://49.234.117.123:3000/home), 已做了nginx配置不会出现404了
+3. 部署到Tencent CloudService，[点击访问](https://vite-learn.tyler4400.com/Home), 已做了nginx配置不会出现404了
 
 我这里使用shh的方式，在push的时候把`build`的文件，发送到腾讯云服务，使用的action是[ssh-deploy](https://github.com/easingthemes/ssh-deploy)
 
