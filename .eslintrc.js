@@ -30,6 +30,7 @@ module.exports = {
     indent: ['error', 2, { SwitchCase: 1 }],
     'no-multiple-empty-lines': 1,
     'no-console': 'off',
+    'object-curly-newline': 'off',
     /**
      * Vite Vue3项目eslint配置遇到的问题
      * https://www.cnblogs.com/Jingge/p/14927175.html
