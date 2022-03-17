@@ -12,6 +12,10 @@
       <a class="mr10" href="https://helloworld-7gdt5hd730eba3c7-1302238818.tcloudbaseapp.com/dist/">Tencent Cloudbase</a>
       <a class="mr10" href="https://vite-learn.tyler4400.com/Home">Tencent CloudServer</a>
     </div>
+  <div>
+    <span>备案号：</span>
+    <a href="https://beian.miit.gov.cn/">陕ICP备2021009075号-1</a>
+  </div>
 </template>
 
 <script lang="ts">
